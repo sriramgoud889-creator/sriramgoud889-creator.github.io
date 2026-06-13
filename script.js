@@ -1,23 +1,15 @@
-const taskInput = document.getElementById('taskInput');
-const addBtn = document.getElementById('addBtn');
-const taskList = document.getElementById('taskList');
+// Portfolio Loaded
+console.log("Portfolio Loaded - Sriram Goud");
 
-addBtn.addEventListener('click', addTask);
-taskInput.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') addTask();
-});
-
-function addTask() {
-    const taskText = taskInput.value.trim();
-    if (taskText === '') {
-        alert('Please enter a task!');
-        return;
-    }
-    const li = document.createElement('li');
-    li.innerHTML = `<span>${taskText}</span><button class="deleteBtn">Delete</button>`;
-    li.querySelector('.deleteBtn').addEventListener('click', function() {
-        li.remove();
+// Smooth scroll for navbar links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
     });
-    taskList.appendChild(li);
-    taskInput.value = '';
-}
+});
